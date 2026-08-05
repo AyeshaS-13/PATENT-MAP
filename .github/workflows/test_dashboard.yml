@@ -38,9 +38,15 @@ jobs:
         run: |
           python tests_300/run_all_tests.py
 
-      - name: 📊 Upload Excel Test Results Artifact
+      - name: 📝 Output Summary.md to GitHub Actions Step Summary
+        run: |
+          cat summary.md >> $GITHUB_STEP_SUMMARY
+
+      - name: 📊 Upload Excel & Summary.md Test Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: PATENT-MAP-Test-Results-Dashboard
-          path: test_results_dashboard.xlsx
+          name: PATENT-MAP-Test-Results-Artifacts
+          path: |
+            test_results_dashboard.xlsx
+            summary.md
           retention-days: 30

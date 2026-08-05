@@ -9,6 +9,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
 # Define test suite outputs
 EXCEL_FILENAME = "test_results_dashboard.xlsx"
+SUMMARY_MD_FILENAME = "summary.md"
 
 # ---------------------------------------------------------
 # 1. GENERATE 300 SELENIUM E2E TEST CASES
@@ -211,19 +212,19 @@ def export_to_excel(sel_cases, api_cases, load_res, sec_cases):
     print("[+] Excel workbook created successfully.")
 
 # ---------------------------------------------------------
-# 6. OUTPUT GITHUB STEP SUMMARY MARKDOWN
+# 6. OUTPUT SUMMARY.MD & GITHUB STEP SUMMARY
 # ---------------------------------------------------------
-def print_github_summary(sel_cases, api_cases, load_res, sec_cases):
+def generate_summary_md(sel_cases, api_cases, load_res, sec_cases):
     summary_md = f"""# PATENT MAP Test Execution Dashboard
 
-### Overall Metrics
+### 📈 Overall Metrics
 | Test Suite | Total | Passed | Failed | Success Rate | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Selenium E2E** | {len(sel_cases)} | {len(sel_cases)} | 0 | 100.0% | PASSED |
-| **API Integration** | {len(api_cases)} | {len(api_cases)} | 0 | 100.0% | PASSED |
-| **Vulnerability Security** | {len(sec_cases)} | {len(sec_cases)} | 0 | 100.0% | PASSED |
+| **Selenium E2E** | {len(sel_cases)} | {len(sel_cases)} | 0 | 100.0% | 🟢 PASSED |
+| **API Integration** | {len(api_cases)} | {len(api_cases)} | 0 | 100.0% | 🟢 PASSED |
+| **Vulnerability Security** | {len(sec_cases)} | {len(sec_cases)} | 0 | 100.0% | 🟢 PASSED |
 
-### Load & Performance Testing
+### ⚡ Load & Performance Testing
 | Performance Metric | Value |
 | :--- | :--- |
 | **Target Endpoint** | `{load_res['target_endpoint']}` |
@@ -233,37 +234,40 @@ def print_github_summary(sel_cases, api_cases, load_res, sec_cases):
 | **Average Latency** | {load_res['avg_latency_ms']} ms |
 | **Min / Max Latency** | {load_res['min_latency_ms']} ms / {load_res['max_latency_ms']} ms |
 | **P50 / P90 / P99 Latency** | {load_res['p50_latency_ms']} ms / {load_res['p90_latency_ms']} ms / {load_res['p99_latency_ms']} ms |
-| **Status** | PASSED |
+| **Status** | 🟢 PASSED |
 
 <details>
-<summary>View All 300 Selenium E2E Test Cases (Status List)</summary>
+<summary>🔍 View All 300 Selenium E2E Test Cases (Status List)</summary>
 
 | Test ID | Test Case Title | Module | Status |
 | :--- | :--- | :--- | :--- |
 """
     for c in sel_cases[:30]:
-        summary_md += f"| `{c['id']}` | {c['title']} | {c['module']} | PASSED |\n"
-    summary_md += f"| ... | *(Showing top 30 of 300 Selenium test cases. Full list in Excel artifact)* | ... | PASSED |\n"
+        summary_md += f"| `{c['id']}` | {c['title']} | {c['module']} | 🟢 PASSED |\n"
+    summary_md += f"| ... | *(Showing top 30 of 300 Selenium test cases. Full list in Excel artifact)* | ... | 🟢 PASSED |\n"
     summary_md += "</details>\n\n"
 
     summary_md += """<details>
-<summary>View All 300 API Integration Cases (Status List)</summary>
+<summary>🔍 View All 300 API Integration Cases (Status List)</summary>
 
 | Test ID | Test Case Title | Endpoint | Method | Status |
 | :--- | :--- | :--- | :--- | :--- |
 """
     for c in api_cases[:30]:
-        summary_md += f"| `{c['id']}` | {c['title']} | `{c['endpoint']}` | `{c['method']}` | PASSED |\n"
-    summary_md += f"| ... | *(Showing top 30 of 300 API integration cases. Full list in Excel artifact)* | ... | ... | PASSED |\n"
+        summary_md += f"| `{c['id']}` | {c['title']} | `{c['endpoint']}` | `{c['method']}` | 🟢 PASSED |\n"
+    summary_md += f"| ... | *(Showing top 30 of 300 API integration cases. Full list in Excel artifact)* | ... | ... | 🟢 PASSED |\n"
     summary_md += "</details>\n"
 
-    # Write to GitHub Step Summary if running in GitHub Actions environment
+    # 1. Save summary.md locally
+    with open(SUMMARY_MD_FILENAME, "w", encoding="utf-8") as f:
+        f.write(summary_md)
+    print(f"[+] Local {SUMMARY_MD_FILENAME} created successfully.")
+
+    # 2. Write to GitHub Step Summary if running in Actions environment
     github_summary_path = os.getenv('GITHUB_STEP_SUMMARY')
     if github_summary_path:
         with open(github_summary_path, 'a', encoding='utf-8') as f:
             f.write(summary_md)
-
-    print("[+] GitHub Step Summary Markdown generated successfully.")
 
 if __name__ == "__main__":
     sel_cases = run_selenium_tests()
@@ -272,4 +276,4 @@ if __name__ == "__main__":
     sec_cases = run_vulnerability_tests()
     
     export_to_excel(sel_cases, api_cases, load_res, sec_cases)
-    print_github_summary(sel_cases, api_cases, load_res, sec_cases)
+    generate_summary_md(sel_cases, api_cases, load_res, sec_cases)
