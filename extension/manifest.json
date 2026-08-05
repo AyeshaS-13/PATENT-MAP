@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "PATENT MAP - CPC Classification Assistant",
+  "version": "1.0.0",
+  "description": "Instant CPC Patent Classification, Domain Detection, and Prior Art Search Browser Extension",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "http://127.0.0.1:8000/*",
+    "https://*.uspto.gov/*",
+    "https://*.espacenet.com/*",
+    "https://patents.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PATENT MAP Assistant"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

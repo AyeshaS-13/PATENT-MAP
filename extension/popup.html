@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PATENT MAP</title>
+  <style>
+    body {
+      width: 360px;
+      margin: 0;
+      padding: 16px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0f19;
+      color: #f3f4f6;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 14px;
+    }
+    .title {
+      font-weight: 800;
+      font-size: 16px;
+      margin: 0;
+    }
+    .subtitle {
+      font-size: 11px;
+      color: #9ca3af;
+      margin: 0;
+    }
+    .card {
+      background-color: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      height: 80px;
+      background-color: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      color: #f3f4f6;
+      padding: 8px;
+      font-size: 12px;
+      resize: none;
+      margin-bottom: 8px;
+    }
+    button {
+      width: 100%;
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .cpc-badge {
+      background-color: #6366f1;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-block;
+    }
+    .res-item {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #1f2937;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">PM</div>
+    <div>
+      <h1 class="title">PATENT MAP Extension</h1>
+      <p class="subtitle">CPC Classification Assistant</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <textarea id="patentText" placeholder="Paste patent text or select text on USPTO / EPO / Google Patents page..."></textarea>
+    <button id="classifyBtn">Classify CPC Code</button>
+  </div>
+
+  <div id="resultsCard" class="card" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <span class="cpc-badge" id="cpcCode">G06F 18/20</span>
+      <span id="cpcConfidence" style="font-size: 11px; color: #10b981; font-weight: 700;">94.2%</span>
+    </div>
+    <p id="cpcDesc" style="font-size: 12px; margin: 8px 0; color: #d1d5db;"></p>
+    <div class="res-item">
+      <div style="font-size: 10px; color: #9ca3af; font-weight: 700; text-transform: uppercase;">DOMINANT DOMAIN</div>
+      <div id="dominantDomain" style="font-size: 12px; font-weight: 700; color: #6366f1; margin-top: 2px;"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

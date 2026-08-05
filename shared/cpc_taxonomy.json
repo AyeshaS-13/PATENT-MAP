@@ -1,0 +1,152 @@
+{
+  "sections": [
+    {
+      "code": "A",
+      "title": "Human Necessities",
+      "description": "Agriculture, Foodstuffs, Personal or Domestic Articles, Health, Life-Saving, Amusements",
+      "classes": [
+        {
+          "code": "A61",
+          "title": "Medical or Veterinary Science; Hygiene",
+          "subclasses": [
+            {
+              "code": "A61K",
+              "title": "Preparations for Medical, Dental, or Toilet Purposes",
+              "groups": [
+                { "code": "A61K 31/00", "description": "Medicinal preparations containing organic active ingredients", "keywords": ["pharmaceutical", "drug", "molecule", "organic", "therapy", "inhibitor", "compound"] },
+                { "code": "A61K 39/00", "description": "Medicinal preparations containing antigens or antibodies", "keywords": ["antibody", "antigen", "vaccine", "immunotherapy", "protein", "serum"] }
+              ]
+            },
+            {
+              "code": "A61B",
+              "title": "Diagnosis; Surgery; Identification",
+              "groups": [
+                { "code": "A61B 5/00", "description": "Measuring signals for diagnostic purposes (e.g. ECG, EEG, biosensors)", "keywords": ["sensor", "diagnostic", "biosensor", "heart rate", "monitoring", "physiological"] },
+                { "code": "A61B 17/00", "description": "Surgical instruments, devices or methods", "keywords": ["surgical", "catheter", "incision", "stent", "tissue", "implant"] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "B",
+      "title": "Performing Operations; Transporting",
+      "description": "Separating, Mixing, Shaping, Printing, Transporting, Aviation",
+      "classes": [
+        {
+          "code": "B64",
+          "title": "Aircraft; Aviation; Cosmonautics",
+          "subclasses": [
+            {
+              "code": "B64C",
+              "title": "Aeroplanes; Helicopters; UAVs",
+              "groups": [
+                { "code": "B64C 39/02", "description": "Unmanned Aerial Vehicles (UAVs / Drones)", "keywords": ["drone", "uav", "quadcopter", "rotor", "flight control", "autonomous aircraft"] },
+                { "code": "B64C 27/00", "description": "Rotorcraft; Rotor systems", "keywords": ["rotor", "helicopter", "blade", "thrust", "aerodynamic"] }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "B25",
+          "title": "Hand Tools; Portable Power Tools; Manipulators",
+          "subclasses": [
+            {
+              "code": "B25J",
+              "title": "Manipulators; Chambers Provided with Manipulating Devices",
+              "groups": [
+                { "code": "B25J 9/16", "description": "Program-controlled manipulators and robotic arm control systems", "keywords": ["robotic arm", "manipulator", "kinematics", "joint", "actuator", "trajectory"] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "C",
+      "title": "Chemistry; Metallurgy",
+      "description": "Chemistry, Biochemistry, Materials, Metallurgy",
+      "classes": [
+        {
+          "code": "C12",
+          "title": "Biochemistry; Beer; Spirits; Wine; Vinegar; Microbiology; Enzymology; Mutation or Genetic Engineering",
+          "subclasses": [
+            {
+              "code": "C12N",
+              "title": "Microorganisms or Enzymes; Compositions Thereof; Genetic Engineering",
+              "groups": [
+                { "code": "C12N 15/09", "description": "Recombinant DNA technology and gene editing (e.g. CRISPR)", "keywords": ["gene", "dna", "rna", "crispr", "cas9", "genetic sequence", "plasmid", "recombinant"] },
+                { "code": "C12N 9/00", "description": "Enzymes; Proenzymes; Compositions thereof", "keywords": ["enzyme", "catalyst", "substrate", "cleavage", "protein engineering"] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "G",
+      "title": "Physics",
+      "description": "Instruments, Nucleonics, Computing, Artificial Intelligence, Data Processing",
+      "classes": [
+        {
+          "code": "G06",
+          "title": "Computing; Calculating; Counting",
+          "subclasses": [
+            {
+              "code": "G06F",
+              "title": "Electric Digital Data Processing",
+              "groups": [
+                { "code": "G06F 18/20", "description": "Pattern recognition, machine learning classifiers, statistical feature extraction", "keywords": ["machine learning", "classifier", "feature extraction", "pattern recognition", "neural network", "vectors"] },
+                { "code": "G06F 21/60", "description": "Protecting data during transmission or storage", "keywords": ["encryption", "security", "privacy", "zero knowledge", "tokenization", "cipher"] }
+              ]
+            },
+            {
+              "code": "G06N",
+              "title": "Computer Systems Based on Specific Computational Models",
+              "groups": [
+                { "code": "G06N 3/02", "description": "Neural network architectures, deep learning, artificial neural systems", "keywords": ["deep learning", "neural network", "transformer", "attention mechanism", "convolutional", "backpropagation"] },
+                { "code": "G06N 20/00", "description": "Machine learning systems and ensemble methods", "keywords": ["random forest", "gradient boosting", "xgboost", "ensemble", "supervised learning"] }
+              ]
+            },
+            {
+              "code": "G06V",
+              "title": "Image or Video Recognition or Understanding",
+              "groups": [
+                { "code": "G06V 10/70", "description": "Pattern recognition or visual feature matching in digital images", "keywords": ["computer vision", "object detection", "image classification", "segmentation", "bounding box"] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "H",
+      "title": "Electricity",
+      "description": "Basic Electric Elements, Generation, Telecommunications, Cryptography",
+      "classes": [
+        {
+          "code": "H04",
+          "title": "Electric Communication Technique",
+          "subclasses": [
+            {
+              "code": "H04L",
+              "title": "Transmission of Digital Information",
+              "groups": [
+                { "code": "H04L 9/32", "description": "Arrangements for verifying identity, digital signatures, blockchain authentication", "keywords": ["cryptography", "blockchain", "digital signature", "public key", "authentication", "hash function"] },
+                { "code": "H04L 67/10", "description": "Distributed computing and server network architectures", "keywords": ["cloud computing", "distributed system", "peer to peer", "microservice", "rest api"] }
+              ]
+            },
+            {
+              "code": "H04W",
+              "title": "Wireless Communication Networks",
+              "groups": [
+                { "code": "H04W 72/04", "description": "Wireless resource allocation, 5G/6G radio communication", "keywords": ["5g", "6g", "spectrum", "cellular", "bandwidth", "beamforming", "antenna"] }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

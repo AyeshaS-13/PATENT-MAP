@@ -1,0 +1,148 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  password      String
+  name          String
+  isOtpVerified Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  patents       Patent[]
+  savedPatents  SavedPatent[]
+  savedSearches SavedSearch[]
+  reports       Report[]
+}
+
+model OTPToken {
+  id        String   @id @default(uuid())
+  email     String
+  otp       String
+  expiresAt DateTime
+  isUsed    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Patent {
+  id          String   @id @default(uuid())
+  userId      String
+  title       String
+  abstract    String
+  claims      String
+  description String
+  fileUrl     String?
+  sourceType  String   @default("TEXT") // TEXT or PDF
+  status      String   @default("PROCESSED")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user               User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  domainAnalysis     DomainAnalysis?
+  cpcRecommendations CPCRecommendation[]
+  aiExplanations     AIExplanation[]
+  priorArtQueries    PriorArtQuery[]
+  reports            Report[]
+  savedPatents       SavedPatent[]
+}
+
+model DomainAnalysis {
+  id                   String   @id @default(uuid())
+  patentId             String   @unique
+  dominantDomain       String
+  dominantPct          Float
+  dependentDomainsJson String // JSON string of dependent domains
+  createdAt            DateTime @default(now())
+
+  patent Patent @relation(fields: [patentId], references: [id], onDelete: Cascade)
+}
+
+model CPCRecommendation {
+  id          String   @id @default(uuid())
+  patentId    String
+  cpcCode     String
+  description String
+  section     String
+  subclass    String
+  confidence  Float
+  createdAt   DateTime @default(now())
+
+  patent Patent @relation(fields: [patentId], references: [id], onDelete: Cascade)
+}
+
+model AIExplanation {
+  id                   String   @id @default(uuid())
+  patentId             String
+  cpcCode              String
+  rationale            String
+  featureImportanceJson String // JSON string
+  textHighlightsJson    String // JSON string
+  confidenceScore      Float    @default(0.95)
+  createdAt            DateTime @default(now())
+
+  patent Patent @relation(fields: [patentId], references: [id], onDelete: Cascade)
+}
+
+model PriorArtQuery {
+  id            String   @id @default(uuid())
+  patentId      String
+  usptoQuery    String
+  epoQuery      String
+  broadQuery    String
+  keywordsJson  String
+  createdAt     DateTime @default(now())
+
+  patent Patent @relation(fields: [patentId], references: [id], onDelete: Cascade)
+}
+
+model SavedPatent {
+  id        String   @id @default(uuid())
+  userId    String
+  patentId  String
+  notes     String?
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  patent Patent @relation(fields: [patentId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, patentId])
+}
+
+model SavedSearch {
+  id          String   @id @default(uuid())
+  userId      String
+  queryTitle  String
+  queryText   String
+  filtersJson String
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Report {
+  id             String   @id @default(uuid())
+  userId         String
+  patentId       String
+  title          String
+  reportFormat   String   @default("PDF")
+  reportDataJson String
+  createdAt      DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  patent Patent @relation(fields: [patentId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  action    String
+  details   String
+  timestamp DateTime @default(now())
+}
