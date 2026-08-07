@@ -50,6 +50,7 @@ import SavedSearchesScreen from './pages/SavedSearchesScreen';
 import ReportsHistoryScreen from './pages/ReportsHistoryScreen';
 
 // Settings & Analytics Pages
+import RealWorldEvaluationScreen from './pages/RealWorldEvaluationScreen';
 import ThemeSettingsScreen from './pages/ThemeSettingsScreen';
 import AccountSettingsScreen from './pages/AccountSettingsScreen';
 import DomainStatsScreen from './pages/DomainStatsScreen';
@@ -106,6 +107,8 @@ export default function App() {
             <Route path="/history/saved-patents" element={<SavedPatentsScreen />} />
             <Route path="/history/saved-searches" element={<SavedSearchesScreen />} />
             <Route path="/history/reports-history" element={<ReportsHistoryScreen />} />
+
+            <Route path="/evaluation/real-world" element={<RealWorldEvaluationScreen />} />
 
             <Route path="/settings/theme" element={<ThemeSettingsScreen />} />
             <Route path="/settings/account" element={<AccountSettingsScreen />} />

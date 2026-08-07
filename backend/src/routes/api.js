@@ -8,6 +8,7 @@ const searchController = require('../controllers/searchController');
 const cpcController = require('../controllers/cpcController');
 const reportController = require('../controllers/reportController');
 const historyController = require('../controllers/historyController');
+const evaluationController = require('../controllers/evaluationController');
 
 const router = express.Router();
 
@@ -53,7 +54,8 @@ router.get('/report/list', verifyToken, reportController.listUserReports);
 // --- HISTORY & SAVED ROUTES ---
 router.post('/history/save-patent', verifyToken, historyController.savePatent);
 router.get('/history/saved-patents', verifyToken, historyController.getSavedPatents);
-router.post('/history/save-search', verifyToken, historyController.saveSearch);
-router.get('/history/saved-searches', verifyToken, historyController.getSavedSearches);
+// --- EVALUATION & RETRAINING STORE ROUTES ---
+router.get('/evaluation/real-world', verifyToken, evaluationController.getRealWorldEvaluation);
+router.post('/evaluation/feedback', verifyToken, evaluationController.submitExaminerFeedback);
 
 module.exports = router;

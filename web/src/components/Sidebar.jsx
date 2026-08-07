@@ -73,6 +73,12 @@ const navModules = [
     ]
   },
   {
+    title: 'Model Evaluation & Audit',
+    items: [
+      { label: 'Real-World Evaluation Mode', path: '/evaluation/real-world', icon: <AssessmentIcon /> }
+    ]
+  },
+  {
     title: 'System & Preferences',
     items: [
       { label: 'Theme Settings (3 Modes)', path: '/settings/theme', icon: <SettingsIcon /> },

@@ -39,29 +39,42 @@ const aiService = {
       const resp = await axios.post(`${AI_SERVICE_URL}/recommend-cpc`, { text });
       return resp.data.data;
     } catch (err) {
-      return [
-        {
-          cpc_code: 'G06F 18/20',
-          description: 'Pattern recognition, machine learning classifiers, statistical feature extraction',
-          section: 'G',
-          subclass: 'G06F',
-          confidence: 94.2
-        },
-        {
-          cpc_code: 'G06N 3/02',
-          description: 'Neural network architectures, deep learning, artificial neural systems',
-          section: 'G',
-          subclass: 'G06N',
-          confidence: 88.7
-        },
-        {
-          cpc_code: 'H04L 9/32',
-          description: 'Arrangements for verifying identity, digital signatures, blockchain authentication',
-          section: 'H',
-          subclass: 'H04L',
-          confidence: 72.1
-        }
+      console.warn('[AI SERVICE FALLBACK] Generating dynamic content-aware CPC recommendations');
+      const lowered = (text || '').toLowerCase();
+      
+      const cpcDatabase = [
+        { code: 'G06F 18/20', desc: 'Pattern recognition, machine learning classifiers, statistical feature extraction', section: 'G', subclass: 'G06F', keywords: ['classifier', 'pattern', 'vector', 'learning', 'feature', 'prediction'] },
+        { code: 'G06N 3/02', desc: 'Neural network hardware architectures, artificial neural networks, computing chips', section: 'G', subclass: 'G06N', keywords: ['neural network', 'deep learning', 'systolic', 'spiking', 'hardware accelerator'] },
+        { code: 'H04L 9/32', desc: 'Digital signatures, message authentication, cryptographic security protocols', section: 'H', subclass: 'H04L', keywords: ['blockchain', 'cryptographic', 'signature', 'zero knowledge', 'authentication', 'cipher'] },
+        { code: 'C12N 15/09', desc: 'Recombinant DNA technology, genetic engineering vectors, nucleic acid mutation', section: 'C', subclass: 'C12N', keywords: ['crispr', 'dna', 'rna', 'gene', 'plasmid', 'endonuclease', 'recombinant'] },
+        { code: 'B64C 39/02', desc: 'Unmanned aerial vehicles, quadcopter drone flight control, rotor craft', section: 'B', subclass: 'B64C', keywords: ['uav', 'drone', 'quadcopter', 'rotor', 'flight', 'altitude', 'avionics'] },
+        { code: 'A61K 31/00', desc: 'Pharmaceutical preparations, medicinal compounds, controlled release formulations', section: 'A', subclass: 'A61K', keywords: ['pharmaceutical', 'drug', 'dosage', 'nanoparticle', 'lipid', 'therapeutic', 'active ingredient'] },
+        { code: 'H04W 84/12', desc: 'Wireless local area networks, Wi-Fi protocols, 5G/6G cellular transmission', section: 'H', subclass: 'H04W', keywords: ['wi-fi', '5g', 'cellular', 'mimo', 'beamforming', 'wireless', 'bandwidth', 'antenna'] },
+        { code: 'B60W 30/00', desc: 'Autonomous vehicle guidance, driver assistance, automated steering control', section: 'B', subclass: 'B60W', keywords: ['vehicle', 'autonomous', 'steering', 'braking', 'lidar', 'radar', 'platooning', 'driving'] },
+        { code: 'G01N 33/50', desc: 'Biological assay testing, biosensors, chemical analysis diagnostic devices', section: 'G', subclass: 'G01N', keywords: ['biosensor', 'immunoassay', 'microfluidic', 'fluorescence', 'assay', 'biomarker', 'diagnostic'] },
+        { code: 'H01L 21/00', desc: 'Semiconductor device fabrication, lithography, integrated circuit processing', section: 'H', subclass: 'H01L', keywords: ['semiconductor', 'lithography', 'dielectric', 'wafer', 'finfet', 'silicon', 'transistor'] },
+        { code: 'G06T 7/00', desc: 'Computer vision, image segmentation, pattern analysis, video stream processing', section: 'G', subclass: 'G06T', keywords: ['computer vision', 'image', 'segmentation', 'video', 'depth map', 'bounding box', 'camera'] },
+        { code: 'G16H 50/20', desc: 'Healthcare data processing, AI medical decision support, clinical analytics', section: 'G', subclass: 'G16H', keywords: ['clinical', 'healthcare', 'medical', 'patient', 'vital sign', 'health record', 'ehr'] }
       ];
+
+      const scored = cpcDatabase.map(item => {
+        let score = 0;
+        item.keywords.forEach(kw => {
+          if (lowered.includes(kw)) score += 3.0;
+        });
+        return { item, score };
+      }).sort((a, b) => b.score - a.score);
+
+      const maxScore = scored[0].score > 0 ? scored[0].score : 1.0;
+      
+      return scored.slice(0, 5).map((s, idx) => ({
+        cpc_code: s.item.code,
+        description: s.item.desc,
+        section: s.item.section,
+        subclass: s.item.subclass,
+        keywords_matched: s.item.keywords.filter(kw => lowered.includes(kw)),
+        confidence: s.score > 0 ? Number(Math.min(98.5, Math.max(55.0, (s.score / maxScore) * 95.0 - idx * 3.0)).toFixed(1)) : Number((60.0 - idx * 4.0).toFixed(1))
+      }));
     }
   },
 

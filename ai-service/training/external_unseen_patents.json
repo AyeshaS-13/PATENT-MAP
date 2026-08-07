@@ -1,0 +1,290 @@
+[
+  {
+    "patent_id": "EP3982561A1",
+    "title": "Method and Apparatus for Convolutional Feature Vector Pattern Classification",
+    "abstract": "Systems for classifying complex sensor patterns using high-dimensional feature vector projection and statistical loss minimization.",
+    "claims": "1. A pattern recognition system comprising a feature extraction engine and a statistical classifier.",
+    "cpc_code": "G06F 18/20",
+    "dominant_domain": "Artificial Intelligence & Machine Learning"
+  },
+  {
+    "patent_id": "WO2023194002A1",
+    "title": "Multi-Modal Statistical Pattern Classifier for High-Frequency Signal Vectors",
+    "abstract": "A machine learning pipeline that extracts discriminative feature vectors from noisy telemetry streams.",
+    "claims": "1. A classification apparatus comprising a data processor evaluating feature vector loss functions.",
+    "cpc_code": "G06F 18/20",
+    "dominant_domain": "Artificial Intelligence & Machine Learning"
+  },
+  {
+    "patent_id": "US11985432B2",
+    "title": "Supervised Feature Selection Network for Multidimensional Pattern Mining",
+    "abstract": "Automated feature selection algorithms evaluating statistical probability distributions over data clusters.",
+    "claims": "1. A method comprising receiving raw data vectors and computing supervised classification metrics.",
+    "cpc_code": "G06F 18/20",
+    "dominant_domain": "Artificial Intelligence & Machine Learning"
+  },
+  {
+    "patent_id": "US11900123B2",
+    "title": "Neuromorphic Systolic Array Processor for Deep Learning Inference",
+    "abstract": "Integrated circuit chip architectures featuring parallel multiplier arrays for convolutional neural network inference.",
+    "claims": "1. A hardware accelerator chip comprising systolic array multipliers and weight memory buffers.",
+    "cpc_code": "G06N 3/02",
+    "dominant_domain": "Artificial Intelligence & Machine Learning"
+  },
+  {
+    "patent_id": "EP4012984B1",
+    "title": "Quantized Neural Network Hardware Accelerator Chip",
+    "abstract": "Low-power hardware inference units executing quantized matrix multiplication for edge artificial intelligence.",
+    "claims": "1. An integrated circuit comprising processing elements configured for deep neural network layers.",
+    "cpc_code": "G06N 3/02",
+    "dominant_domain": "Artificial Intelligence & Machine Learning"
+  },
+  {
+    "patent_id": "WO2023881022A1",
+    "title": "On-Chip Synaptic Weight Memory Circuit for Spiking Neural Networks",
+    "abstract": "Neuromorphic computing architecture with non-volatile crossbar arrays executing spike-timing-dependent plasticity.",
+    "claims": "1. A spiking neural network processor comprising artificial neuron circuits and synaptic crossbars.",
+    "cpc_code": "G06N 3/02",
+    "dominant_domain": "Artificial Intelligence & Machine Learning"
+  },
+  {
+    "patent_id": "US11943001B2",
+    "title": "Zero-Knowledge Cryptographic Authentication Protocol for Decentralized Ledgers",
+    "abstract": "A security framework utilizing zero-knowledge proof primitives and public key signatures for token validation.",
+    "claims": "1. A cryptographic method comprising generating zero-knowledge proof tokens and verifying transaction blocks.",
+    "cpc_code": "H04L 9/32",
+    "dominant_domain": "Cryptography, Cybersecurity & Blockchain"
+  },
+  {
+    "patent_id": "EP3990112A1",
+    "title": "Elliptic Curve Multi-Signature Verification Engine for Blockchain Networks",
+    "abstract": "Methods for validating distributed ledger transaction blocks using multi-signature aggregation.",
+    "claims": "1. A cryptographic authentication system comprising private key modules and signature verification logic.",
+    "cpc_code": "H04L 9/32",
+    "dominant_domain": "Cryptography, Cybersecurity & Blockchain"
+  },
+  {
+    "patent_id": "WO2023055112A1",
+    "title": "Post-Quantum Digital Signature Verification Architecture",
+    "abstract": "Public key infrastructure supporting lattice-based cryptographic algorithms for distributed node authentication.",
+    "claims": "1. A secure node verification system comprising key generation circuits and hashing algorithms.",
+    "cpc_code": "H04L 9/32",
+    "dominant_domain": "Cryptography, Cybersecurity & Blockchain"
+  },
+  {
+    "patent_id": "US11876543B2",
+    "title": "Targeted CRISPR-Cas9 Recombinant Expression Vector for Genomic Editing",
+    "abstract": "Genetic engineering constructs optimized for site-specific nucleotide cleavage and transcriptional regulation.",
+    "claims": "1. A recombinant plasmid vector comprising a guide RNA sequence and a Cas endonuclease coding sequence.",
+    "cpc_code": "C12N 15/09",
+    "dominant_domain": "Biotechnology & Genomics"
+  },
+  {
+    "patent_id": "EP4033100A1",
+    "title": "Synthetic mRNA Expression Construct with Inducible Promoter",
+    "abstract": "Nucleic acid constructs encoding functional Cas endonuclease enzymes for cell genome modification.",
+    "claims": "1. A synthetic nucleic acid molecule comprising a promoter domain and ribosomal translation sequences.",
+    "cpc_code": "C12N 15/09",
+    "dominant_domain": "Biotechnology & Genomics"
+  },
+  {
+    "patent_id": "WO2023112990A1",
+    "title": "Engineered Viral Gene Delivery Vector for Targeted Nucleotide Insertion",
+    "abstract": "Recombinant nucleic acid vectors comprising site-specific recombination sequences for genomic insertion.",
+    "claims": "1. An engineered gene delivery vector comprising an expression cassette and selectable marker genes.",
+    "cpc_code": "C12N 15/09",
+    "dominant_domain": "Biotechnology & Genomics"
+  },
+  {
+    "patent_id": "US11922331B2",
+    "title": "Autonomous Flight Telemetry Controller for Multi-Rotor UAV Drones",
+    "abstract": "Avionics control computer for quadcopter aerial drones incorporating sensor fusion for altitude stabilization.",
+    "claims": "1. An autonomous UAV comprising flight control processors, rotor actuators, and telemetry sensors.",
+    "cpc_code": "B64C 39/02",
+    "dominant_domain": "Aerospace & Drone Avionics"
+  },
+  {
+    "patent_id": "EP3977112B1",
+    "title": "Swarm UAV Collision Mitigation and Obstacle Avoidance Avionics",
+    "abstract": "Navigation system utilizing LIDAR ranging sensors to plot dynamic aerodynamic trajectories for unmanned aircraft.",
+    "claims": "1. A drone flight stabilization apparatus comprising an inertial measurement unit and motor controllers.",
+    "cpc_code": "B64C 39/02",
+    "dominant_domain": "Aerospace & Drone Avionics"
+  },
+  {
+    "patent_id": "WO2023044991A1",
+    "title": "Vertical Takeoff and Landing Flight Computer for Quadcopter Drones",
+    "abstract": "Flight guidance computer evaluating Kalman-filtered sensor data to execute vertical takeoff maneuvers.",
+    "claims": "1. An aerial drone navigation computer comprising obstacle detection sensors and motor speed control modules.",
+    "cpc_code": "B64C 39/02",
+    "dominant_domain": "Aerospace & Drone Avionics"
+  },
+  {
+    "patent_id": "US11899112B2",
+    "title": "Solid Lipid Nanoparticle Pharmaceutical Carrier for Controlled Active Ingredient Release",
+    "abstract": "Therapeutic pharmaceutical oral formulations encapsulated in lipid nanoparticle matrices for enhanced bioavailability.",
+    "claims": "1. A pharmaceutical composition comprising a therapeutic active ingredient encapsulated within solid lipid nanoparticles.",
+    "cpc_code": "A61K 31/00",
+    "dominant_domain": "Pharmaceuticals & Medicinal Chemistry"
+  },
+  {
+    "patent_id": "EP4022998A1",
+    "title": "Controlled Release Polymeric Oral Matrix Formulations",
+    "abstract": "Medicinal compositions comprising therapeutic active compounds for pH-dependent gastrointestinal absorption.",
+    "claims": "1. An oral drug delivery system comprising an active compound, bioadhesive polymer coat, and enteric layer.",
+    "cpc_code": "A61K 31/00",
+    "dominant_domain": "Pharmaceuticals & Medicinal Chemistry"
+  },
+  {
+    "patent_id": "WO2023150882A1",
+    "title": "Therapeutic Small Molecule Inhibitor Formulations with Extended Dissolution Profile",
+    "abstract": "Pharmaceutical preparations comprising enzymatic inhibitor compounds combined with stabilizing excipients.",
+    "claims": "1. A therapeutic formulation comprising active enzyme inhibitors combined with pharmaceutically acceptable salts.",
+    "cpc_code": "A61K 31/00",
+    "dominant_domain": "Pharmaceuticals & Medicinal Chemistry"
+  },
+  {
+    "patent_id": "US11955443B2",
+    "title": "Multi-User MIMO Beamforming Spatial Allocation Controller for Wireless Networks",
+    "abstract": "Wireless local area network access points optimizing radio frequency beamforming weights and channel allocation.",
+    "claims": "1. A wireless communication device comprising antenna arrays and baseband processors computing spatial weights.",
+    "cpc_code": "H04W 84/12",
+    "dominant_domain": "Telecommunications & Wireless Networks"
+  },
+  {
+    "patent_id": "EP3966001A1",
+    "title": "Dynamic Millimeter-Wave Spectrum Management Unit for 5G Cellular Transmission",
+    "abstract": "Apparatus for allocating channel spectrum across cellular base stations to minimize co-channel interference.",
+    "claims": "1. A wireless access point comprising MAC layer controllers and modems supporting amplitude modulation.",
+    "cpc_code": "H04W 84/12",
+    "dominant_domain": "Telecommunications & Wireless Networks"
+  },
+  {
+    "patent_id": "WO2023089112A1",
+    "title": "Ultra-Low Latency Packet Scheduling Architecture for OFDM Wireless Networks",
+    "abstract": "Transceiver system operating in unlicensed frequency bands using spatial multiplexing and carrier aggregation.",
+    "claims": "1. A cellular transmission apparatus comprising base station controllers and adaptive power control circuits.",
+    "cpc_code": "H04W 84/12",
+    "dominant_domain": "Telecommunications & Wireless Networks"
+  },
+  {
+    "patent_id": "US11966112B2",
+    "title": "Autonomous Vehicle Automated Steering and Emergency Braking System",
+    "abstract": "Advanced driver assistance platform integrating LIDAR and camera streams to execute collision mitigation steering.",
+    "claims": "1. An autonomous vehicle guidance system comprising LIDAR sensors and electronic control units actuating steering.",
+    "cpc_code": "B60W 30/00",
+    "dominant_domain": "Automotive & Autonomous Vehicles"
+  },
+  {
+    "patent_id": "EP4055223A1",
+    "title": "Automobile Adaptive Cruise Control and Platooning Controller",
+    "abstract": "Computerized vehicle control system evaluating radar ranging data and wheel telemetry to maintain vehicle platoons.",
+    "claims": "1. A vehicle safety apparatus comprising radar sensors, brake actuators, and risk prediction algorithms.",
+    "cpc_code": "B60W 30/00",
+    "dominant_domain": "Automotive & Autonomous Vehicles"
+  },
+  {
+    "patent_id": "WO2023188990A1",
+    "title": "LIDAR Point Cloud Vehicle Trajectory Planning Unit",
+    "abstract": "Autonomous driving guidance system constructing high-definition point clouds to navigate urban intersections.",
+    "claims": "1. An automated vehicle control system comprising lateral steering managers and sensor fusion modules.",
+    "cpc_code": "B60W 30/00",
+    "dominant_domain": "Automotive & Autonomous Vehicles"
+  },
+  {
+    "patent_id": "US11977881B2",
+    "title": "Microfluidic Biochip Diagnostic Sensor for Immunoassay Detection",
+    "abstract": "Diagnostic biosensor platform containing reaction microchannels and photodiode arrays for analyte measurement.",
+    "claims": "1. A diagnostic biosensor device comprising microfluidic channels with immobilized probes and optical detectors.",
+    "cpc_code": "G01N 33/50",
+    "dominant_domain": "Medical Devices & Healthcare Technology"
+  },
+  {
+    "patent_id": "EP4011882B1",
+    "title": "Point-of-Care Electrochemical Diagnostic Biosensor Strip",
+    "abstract": "Portable diagnostic test reader utilizing enzyme-coated electrodes to measure biomarker concentrations.",
+    "claims": "1. An electrochemical assay cartridge comprising working electrodes coated with enzymatic reagents.",
+    "cpc_code": "G01N 33/50",
+    "dominant_domain": "Medical Devices & Healthcare Technology"
+  },
+  {
+    "patent_id": "WO2023011221A1",
+    "title": "Optofluidic Single-Cell Fluorescence Monitoring Cartridge",
+    "abstract": "High-throughput microfluidic platform with optical fluorescence optics for biological sample screening.",
+    "claims": "1. A medical diagnostic instrument comprising microchannel fluidic actuators and fluorescence optics.",
+    "cpc_code": "G01N 33/50",
+    "dominant_domain": "Medical Devices & Healthcare Technology"
+  },
+  {
+    "patent_id": "US11988990B2",
+    "title": "Extreme Ultraviolet Lithography Method for Sub-3nm Transistor Gate Patterning",
+    "abstract": "Semiconductor manufacturing method utilizing plasma etching and EUV exposure for FinFET transistor fabrication.",
+    "claims": "1. A method of manufacturing a semiconductor device comprising forming fin structures and etching gate dielectrics.",
+    "cpc_code": "H01L 21/00",
+    "dominant_domain": "Semiconductors & Integrated Circuits"
+  },
+  {
+    "patent_id": "EP4066332A1",
+    "title": "Atomic Layer Deposition Process for Ultra-Thin Dielectric Layers",
+    "abstract": "Processing chamber apparatus depositing high-k dielectric films on silicon wafers via precursor gas pulsing.",
+    "claims": "1. A semiconductor processing chamber comprising showerhead dispensers and plasma generation electrodes.",
+    "cpc_code": "H01L 21/00",
+    "dominant_domain": "Semiconductors & Integrated Circuits"
+  },
+  {
+    "patent_id": "WO2023200112A1",
+    "title": "Chemical Mechanical Planarization Endpoint Monitoring Tool",
+    "abstract": "Integrated circuit polishing tool featuring optical endpoint sensors for nanoscale silicon wafer planarization.",
+    "claims": "1. An integrated circuit fabrication process comprising etching through-silicon vias and electroplating copper.",
+    "cpc_code": "H01L 21/00",
+    "dominant_domain": "Semiconductors & Integrated Circuits"
+  },
+  {
+    "patent_id": "US11999120B2",
+    "title": "Deep Neural Network Video Object Segmentation and Tracking Unit",
+    "abstract": "Computer vision system processing digital video frames to bound objects and track spatial feature trajectories.",
+    "claims": "1. A computer vision system comprising an image sensor, GPU frame processor, and frame segmentation modules.",
+    "cpc_code": "G06T 7/00",
+    "dominant_domain": "Computer Vision & Image Processing"
+  },
+  {
+    "patent_id": "EP4077881A1",
+    "title": "Stereoscopic 3D Depth Map Estimation System",
+    "abstract": "Image processing unit receiving stereoscopic video streams and computing 3D depth maps for vision sensors.",
+    "claims": "1. An image processing method comprising receiving video frames and computing optical flow vectors.",
+    "cpc_code": "G06T 7/00",
+    "dominant_domain": "Computer Vision & Image Processing"
+  },
+  {
+    "patent_id": "WO2023211090A1",
+    "title": "Automated Optical Inspection Surface Defect Detection Processor",
+    "abstract": "Industrial computer vision inspection tool applying spatial filtering algorithms to identify physical surface defects.",
+    "claims": "1. A 3D vision system comprising stereoscopic cameras and point cloud feature extraction logic.",
+    "cpc_code": "G06T 7/00",
+    "dominant_domain": "Computer Vision & Image Processing"
+  },
+  {
+    "patent_id": "US11995400B2",
+    "title": "Clinical AI Predictive Analytics Platform for Patient Health Record Processing",
+    "abstract": "Healthcare data processing platform employing natural language processing on progress notes to predict outcomes.",
+    "claims": "1. A healthcare data processing system comprising database interfaces, NLP modules, and risk calculation models.",
+    "cpc_code": "G16H 50/20",
+    "dominant_domain": "Software & Distributed Systems"
+  },
+  {
+    "patent_id": "EP4088112A1",
+    "title": "Wearable Health Telemetry Vital Sign Anomaly Detection Engine",
+    "abstract": "Distributed cloud platform ingesting continuous physiological time-series data from patient wearable sensors.",
+    "claims": "1. A patient monitoring system comprising biosensor inputs, anomaly detection algorithms, and notification modules.",
+    "cpc_code": "G16H 50/20",
+    "dominant_domain": "Software & Distributed Systems"
+  },
+  {
+    "patent_id": "WO2023220441A1",
+    "title": "Electronic Health Record Clinical Coding NLP Engine",
+    "abstract": "Cloud analytics engine parsing electronic health records to extract diagnostic codes and therapeutic actions.",
+    "claims": "1. A medical decision support apparatus comprising health record storage and clinical risk calculation software.",
+    "cpc_code": "G16H 50/20",
+    "dominant_domain": "Software & Distributed Systems"
+  }
+]

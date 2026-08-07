@@ -10,6 +10,32 @@ from app.cpc_recommender import recommend_cpc_codes
 from app.explainer import generate_ai_explanation
 from app.query_gen import generate_patent_queries
 from app.prior_art import search_prior_art, compare_patents
+from app.evaluation import run_external_evaluation, record_examiner_feedback
+
+class FeedbackPayload(BaseModel):
+    patent_id: Optional[str] = "CUSTOM_DOC"
+    title: Optional[str] = ""
+    abstract: Optional[str] = ""
+    predicted_cpc: Optional[str] = ""
+    corrected_cpc: Optional[str] = ""
+    examiner_notes: Optional[str] = ""
+    timestamp: Optional[str] = ""
+
+@app.get("/evaluate-external")
+def evaluate_external_endpoint():
+    try:
+        result = run_external_evaluation()
+        return {"success": True, "data": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"External evaluation failed: {str(e)}")
+
+@app.post("/submit-feedback")
+def submit_feedback_endpoint(payload: FeedbackPayload):
+    try:
+        result = record_examiner_feedback(payload.model_dump())
+        return {"success": True, "data": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to record feedback: {str(e)}")
 
 app = FastAPI(
     title="PATENT MAP AI & NLP Microservice",
