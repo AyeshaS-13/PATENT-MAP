@@ -18,7 +18,7 @@ export default function CreateAccountScreen() {
     dispatch(clearAuthError());
     const res = await dispatch(registerUser({ name, email, password }));
     if (registerUser.fulfilled.match(res)) {
-      navigate('/auth/verify-otp');
+      navigate('/dashboard/overview');
     }
   };
 
@@ -39,31 +39,49 @@ export default function CreateAccountScreen() {
 
           <form onSubmit={handleSubmit}>
             <Stack spacing={2.5}>
-              <TextField
-                label="Full Name"
-                fullWidth
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <TextField
-                label="Email Address"
-                type="email"
-                fullWidth
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <TextField
-                label="Password (min 6 chars)"
-                type="password"
-                fullWidth
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <Button type="submit" variant="contained" size="large" fullWidth disabled={loading}>
-                {loading ? <CircularProgress size={24} color="inherit" /> : 'Register & Get OTP'}
+              <Box>
+                <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', display: 'block', mb: 0.5 }}>
+                  FULL NAME
+                </Typography>
+                <TextField
+                  fullWidth
+                  required
+                  placeholder="Enter your full name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Box>
+
+              <Box>
+                <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', display: 'block', mb: 0.5 }}>
+                  EMAIL ADDRESS
+                </Typography>
+                <TextField
+                  type="email"
+                  fullWidth
+                  required
+                  placeholder="name@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Box>
+
+              <Box>
+                <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', display: 'block', mb: 0.5 }}>
+                  PASSWORD (MIN 6 CHARACTERS)
+                </Typography>
+                <TextField
+                  type="password"
+                  fullWidth
+                  required
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Box>
+
+              <Button type="submit" variant="contained" size="large" fullWidth disabled={loading} sx={{ py: 1.5, fontWeight: 800 }}>
+                {loading ? <CircularProgress size={24} color="inherit" /> : 'Create Account & Start'}
               </Button>
             </Stack>
           </form>

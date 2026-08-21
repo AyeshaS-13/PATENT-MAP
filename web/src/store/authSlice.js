@@ -6,16 +6,21 @@ const API_BASE = '/api';
 export const loginUser = createAsyncThunk('auth/loginUser', async (credentials, { rejectWithValue }) => {
   try {
     const res = await axios.post(`${API_BASE}/auth/login`, credentials);
-    localStorage.setItem('patent_map_token', res.data.data.token);
+    if (res.data?.data?.token) {
+      localStorage.setItem('patent_map_token', res.data.data.token);
+    }
     return res.data.data;
   } catch (err) {
-    return rejectWithValue(err.response?.data?.error?.message || 'Login failed.');
+    return rejectWithValue(err.response?.data?.error?.message || 'Invalid email or password.');
   }
 });
 
 export const registerUser = createAsyncThunk('auth/registerUser', async (userData, { rejectWithValue }) => {
   try {
     const res = await axios.post(`${API_BASE}/auth/register`, userData);
+    if (res.data?.data?.token) {
+      localStorage.setItem('patent_map_token', res.data.data.token);
+    }
     return res.data.data;
   } catch (err) {
     return rejectWithValue(err.response?.data?.error?.message || 'Registration failed.');
@@ -25,10 +30,12 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (userDat
 export const verifyOTP = createAsyncThunk('auth/verifyOTP', async (otpData, { rejectWithValue }) => {
   try {
     const res = await axios.post(`${API_BASE}/auth/verify-otp`, otpData);
-    localStorage.setItem('patent_map_token', res.data.data.token);
+    if (res.data?.data?.token) {
+      localStorage.setItem('patent_map_token', res.data.data.token);
+    }
     return res.data.data;
   } catch (err) {
-    return rejectWithValue(err.response?.data?.error?.message || 'OTP verification failed.');
+    return rejectWithValue(err.response?.data?.error?.message || 'Verification failed.');
   }
 });
 
@@ -53,14 +60,14 @@ const authSlice = createSlice({
     token: localStorage.getItem('patent_map_token') || null,
     loading: false,
     error: null,
-    otpPendingEmail: null,
-    sampleOtp: null
+    otpPendingEmail: null
   },
   reducers: {
     logout: (state) => {
       localStorage.removeItem('patent_map_token');
       state.user = null;
       state.token = null;
+      state.otpPendingEmail = null;
     },
     clearAuthError: (state) => {
       state.error = null;
@@ -84,8 +91,8 @@ const authSlice = createSlice({
       .addCase(registerUser.pending, (state) => { state.loading = true; state.error = null; })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.otpPendingEmail = action.payload.email;
-        state.sampleOtp = action.payload.sampleOtp;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
@@ -96,7 +103,6 @@ const authSlice = createSlice({
         state.loading = false;
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.otpPendingEmail = null;
       })
       .addCase(verifyOTP.rejected, (state, action) => {
         state.loading = false;

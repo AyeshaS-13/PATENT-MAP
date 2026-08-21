@@ -17,20 +17,20 @@ export default function SignInScreen() {
     dispatch(clearAuthError());
     const res = await dispatch(loginUser({ email, password }));
     if (loginUser.fulfilled.match(res)) {
-      navigate('/dashboard');
+      navigate('/dashboard/overview');
     }
   };
 
   return (
-    <Box sx={{ maxWidth: 450, mx: 'auto', mt: 8, p: 2 }}>
+    <Box sx={{ maxWidth: 450, mx: 'auto', mt: 6, p: 2 }}>
       <Card>
         <CardContent sx={{ p: 4 }}>
           <Box sx={{ textAlign: 'center', mb: 3 }}>
             <Typography variant="h5" sx={{ fontWeight: 800, mb: 1 }}>
-              Welcome Back to PATENT MAP
+              Sign In to PATENT MAP
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Sign in to access your CPC classification workspace
+              Access your saved CPC classifications, reports, and prior art searches
             </Typography>
           </Box>
 
@@ -38,28 +38,35 @@ export default function SignInScreen() {
 
           <form onSubmit={handleSubmit}>
             <Stack spacing={2.5}>
-              <TextField
-                label="Email Address"
-                type="email"
-                fullWidth
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <TextField
-                label="Password"
-                type="password"
-                fullWidth
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <Box sx={{ textAlign: 'right' }}>
-                <Link onClick={() => navigate('/auth/forgot-password')} sx={{ cursor: 'pointer', fontSize: '0.85rem' }}>
-                  Forgot Password?
-                </Link>
+              <Box>
+                <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', display: 'block', mb: 0.5 }}>
+                  EMAIL ADDRESS
+                </Typography>
+                <TextField
+                  type="email"
+                  fullWidth
+                  required
+                  placeholder="name@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </Box>
-              <Button type="submit" variant="contained" size="large" fullWidth disabled={loading}>
+
+              <Box>
+                <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', display: 'block', mb: 0.5 }}>
+                  PASSWORD
+                </Typography>
+                <TextField
+                  type="password"
+                  fullWidth
+                  required
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Box>
+
+              <Button type="submit" variant="contained" size="large" fullWidth disabled={loading} sx={{ py: 1.5, fontWeight: 800 }}>
                 {loading ? <CircularProgress size={24} color="inherit" /> : 'Sign In'}
               </Button>
             </Stack>
