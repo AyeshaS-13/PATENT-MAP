@@ -1,9 +1,14 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 const { PrismaClient } = require('@prisma/client');
 const { JWT_SECRET } = require('../middleware/auth');
 
 const prisma = new PrismaClient();
+
+const generateSecureOTP = () => {
+  return crypto.randomInt(100000, 999999).toString();
+};
 
 const register = async (req, res, next) => {
   try {
@@ -38,7 +43,6 @@ const register = async (req, res, next) => {
     let user;
 
     if (existingUser) {
-      // Update password & name for instant account access
       user = await prisma.user.update({
         where: { email: cleanEmail },
         data: {
@@ -58,7 +62,7 @@ const register = async (req, res, next) => {
       });
     }
 
-    // Generate immediate JWT Session Token (Instant Login without OTP step)
+    // Generate immediate 7-day JWT Session Token (Instant Account Access)
     const token = jwt.sign(
       { userId: user.id, email: user.email, name: user.name },
       JWT_SECRET,
@@ -86,7 +90,7 @@ const register = async (req, res, next) => {
 const sendOTP = async (req, res, next) => {
   res.status(200).json({
     success: true,
-    message: 'Direct verification enabled.'
+    message: 'Direct verification active.'
   });
 };
 
@@ -152,7 +156,7 @@ const login = async (req, res, next) => {
     if (!user) {
       return res.status(401).json({
         success: false,
-        error: { message: 'Invalid email or password.' }
+        error: { message: 'Invalid email address or password.' }
       });
     }
 
@@ -160,7 +164,7 @@ const login = async (req, res, next) => {
     if (!isMatch) {
       return res.status(401).json({
         success: false,
-        error: { message: 'Invalid email or password.' }
+        error: { message: 'Invalid email address or password.' }
       });
     }
 
