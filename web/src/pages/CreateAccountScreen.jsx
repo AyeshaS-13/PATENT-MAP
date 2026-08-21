@@ -37,15 +37,17 @@ export default function CreateAccountScreen() {
 
           {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} autoComplete="off">
             <Stack spacing={2.5}>
               <Box>
                 <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', display: 'block', mb: 0.5 }}>
                   FULL NAME
                 </Typography>
                 <TextField
+                  name="user_full_name_input"
                   fullWidth
                   required
+                  autoComplete="off"
                   placeholder="Enter your full name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -57,9 +59,11 @@ export default function CreateAccountScreen() {
                   EMAIL ADDRESS
                 </Typography>
                 <TextField
+                  name="user_registration_email"
                   type="email"
                   fullWidth
                   required
+                  autoComplete="off"
                   placeholder="name@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -71,9 +75,11 @@ export default function CreateAccountScreen() {
                   PASSWORD (MIN 6 CHARACTERS)
                 </Typography>
                 <TextField
+                  name="user_registration_new_password"
                   type="password"
                   fullWidth
                   required
+                  autoComplete="new-password"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

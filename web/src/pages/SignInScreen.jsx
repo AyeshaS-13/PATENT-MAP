@@ -36,16 +36,18 @@ export default function SignInScreen() {
 
           {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} autoComplete="off">
             <Stack spacing={2.5}>
               <Box>
                 <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary', display: 'block', mb: 0.5 }}>
                   EMAIL ADDRESS
                 </Typography>
                 <TextField
+                  name="user_signin_email"
                   type="email"
                   fullWidth
                   required
+                  autoComplete="off"
                   placeholder="name@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -57,9 +59,11 @@ export default function SignInScreen() {
                   PASSWORD
                 </Typography>
                 <TextField
+                  name="user_signin_password"
                   type="password"
                   fullWidth
                   required
+                  autoComplete="current-password"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
